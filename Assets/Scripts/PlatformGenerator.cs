@@ -11,6 +11,8 @@ public class PlatformGenerator : MonoBehaviour
 
     private float platformWidth;
 
+    public ObjectPooler objectPool;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,13 @@ public class PlatformGenerator : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x + platformWidth + distanceBetween, transform.position.y, transform.position.z);
 
-            Instantiate(aPlatform, transform.position, transform.rotation);
+            //Instantiate(aPlatform, transform.position, transform.rotation);
+            GameObject newPlatform = objectPool.GetPooledObject();
+
+            newPlatform.transform.position = transform.position;
+            newPlatform.transform.rotation = transform.rotation;
+            newPlatform.SetActive(true);
+            
         }
     }
 }
