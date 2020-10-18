@@ -11,10 +11,15 @@ public class PlatformGenerator : MonoBehaviour
 
     private float platformWidth;
 
+    private int platformSelector;
+
     public ObjectPooler objectPool;
 
     private ItemGenerator itemGenerator;
     public float randomItemThreshhold;
+
+    public float randomDangerThreshold;
+    public ObjectPooler dangerPool;
 
     // Start is called before the first frame update
     void Start()
@@ -41,8 +46,22 @@ public class PlatformGenerator : MonoBehaviour
             {
                 itemGenerator.SpawnItems(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
             }
-            
-            
+
+            if (Random.Range(0f, 100f) < randomDangerThreshold)
+            {
+                GameObject newDanger = dangerPool.GetPooledObject();
+
+                float dangerXPosition = Random.Range(-platformWidth[platformSelector] / 2f + 1f, platformWidth[platformSelector] / 2f - 1f);
+
+                Vector3 dangerPosition = new Vector3(0f, 0.5f, 0);
+
+                newDanger.transform.position = transform.position + dangerPosition;
+                newDanger.transform.rotation = transform.rotation;
+                newDanger.SetActive(true);
+            }
+
+
+
         }
     }
 }
