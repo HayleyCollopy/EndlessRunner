@@ -47,7 +47,7 @@ public class PlatformGenerator : MonoBehaviour
 
             if(Random.Range (0f, 100f) < randomItemThreshhold)
             {
-                itemGenerator.SpawnItems(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+                itemGenerator.SpawnItems(new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z));
             }
 
             if (Random.Range(0f, 100f) < randomDangerThreshold)
@@ -57,7 +57,7 @@ public class PlatformGenerator : MonoBehaviour
                 //float dangerXPosition = Random.Range(-platformWidths[platformSelector] / 2f + 1f, platformWidths[platformSelector] / 2f - 1f);
 
 
-                Vector3 dangerPosition = new Vector3(5f, 0.5f, 0);
+                Vector3 dangerPosition = new Vector3(5f, 1.7f, 0);
 
                 newDanger.transform.position = transform.position + dangerPosition;
                 newDanger.transform.rotation = transform.rotation;

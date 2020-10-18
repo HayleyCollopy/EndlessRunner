@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour {
 
     private Collider2D collider2d;
 
+    private Animator theAnimator;
+
     public GameManager gameManager;
 
 
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour {
     {
         rb2d = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
+
+        theAnimator = GetComponent<Animator>();
 
         speedMilestoneCount = speedIncrease;
 
@@ -63,6 +67,9 @@ public class PlayerController : MonoBehaviour {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
             }
         }
+
+        theAnimator.SetFloat("Speed", rb2d.velocity.x);
+        theAnimator.SetBool("Grounded", grounded);
     }
 
     void OnCollisionEnter2D(Collision2D other)
