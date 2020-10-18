@@ -13,11 +13,13 @@ public class PlatformGenerator : MonoBehaviour
 
     public ObjectPooler objectPool;
 
+    private ItemGenerator itemGenerator;
+    public float randomItemThreshhold;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        itemGenerator = FindObjectOfType<ItemGenerator>();
     }
 
     // Update is called once per frame
@@ -33,6 +35,13 @@ public class PlatformGenerator : MonoBehaviour
             newPlatform.transform.position = transform.position;
             newPlatform.transform.rotation = transform.rotation;
             newPlatform.SetActive(true);
+
+
+            if(Random.Range (0f, 100f) < randomItemThreshhold)
+            {
+                itemGenerator.SpawnItems(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+            }
+            
             
         }
     }
