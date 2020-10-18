@@ -734,6 +734,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &774749942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 774749944}
+  - component: {fileID: 774749943}
+  m_Layer: 0
+  m_Name: DangerPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &774749943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774749942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767f5b9d73529cc4a8f62dfda212051e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 6500979208164522302, guid: 3870f6c3ba688c84c9d90d5be859eb7b,
+    type: 3}
+  pooledAmount: 5
+--- !u!4 &774749944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774749942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.282067, y: 4.419482, z: -305.3789}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &803543552
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,8 +812,11 @@ MonoBehaviour:
   aPlatform: {fileID: 140540587}
   generationPoint: {fileID: 1830311808}
   distanceBetween: 11
+  thePlatforms: []
   objectPool: {fileID: 746025942}
   randomItemThreshhold: 75
+  randomDangerThreshold: 75
+  dangerPool: {fileID: 774749943}
 --- !u!4 &803543554
 Transform:
   m_ObjectHideFlags: 0
@@ -839,7 +888,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124624505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.14, y: 0.88, z: -203.75}
+  m_LocalPosition: {x: 20.14, y: 6.36, z: -203.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -912,7 +961,7 @@ GameObject:
   - component: {fileID: 1293158267}
   - component: {fileID: 1293158266}
   m_Layer: 5
-  m_Name: RESTART
+  m_Name: Restart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1246,7 +1295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b2759b6dabaf147bb81eb19e6d172e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 12
   speedMultiplier: 1.05
   speedIncrease: 100
   jumpForce: 13
@@ -1496,7 +1545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1934843584
 RectTransform:
   m_ObjectHideFlags: 0
