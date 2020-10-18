@@ -12,11 +12,15 @@ public class GameManager : MonoBehaviour
 
     private PlatformDestroyer[] platformList;
 
+    private ScoreManager scoreManager;
+
     // Start is called before the first frame update
     void Start()
     {
         platformStartPoint = platformGenerator.position;
         playerStartPoint = player.transform.position;
+
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -32,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator RestartGameCo()
     {
+        scoreManager.scoreIncreasing = false;
         player.gameObject.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         platformList = FindObjectsOfType<PlatformDestroyer>();
@@ -43,6 +48,9 @@ public class GameManager : MonoBehaviour
         player.transform.position = playerStartPoint;
         platformGenerator.position = platformStartPoint;
         player.gameObject.SetActive(true);
+
+        scoreManager.scoreCount = 0;
+        scoreManager.scoreIncreasing = true;
     }
 
 }
